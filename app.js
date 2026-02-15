@@ -1,5 +1,3 @@
-const root = document.getElementById("root");
-
 // const element = document.createElement("h1");
 // element.textContent = "Hello World";
 
@@ -31,6 +29,12 @@ const React = {
   },
 };
 
+const ReactDOM = {
+  render: function (child, parent) {
+    parent.appendChild(child);
+  },
+};
+
 const element = React.createElement(
   "h1",
   {
@@ -41,4 +45,8 @@ const element = React.createElement(
   "hello from h1",
 );
 
-root.appendChild(element);
+const root = document.getElementById("root");
+
+ReactDOM.render(element, root);
+
+// root.appendChild(element);
