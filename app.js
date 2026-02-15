@@ -16,6 +16,37 @@ const OriginalReact = {
     };
   },
 };
+const root = document.getElementById("root");
+
+const reactElement = OriginalReact.createElement(
+  "h1",
+  {
+    className: "heading",
+    id: "head",
+    style: { fontSize: "20px", backgroundColor: "orange" },
+  },
+  "hello from h1",
+);
+
+const OriginalReactDOM = {
+  render: function (reactElement, root) {
+    const element = document.createElement(reactElement.type);
+    const { props } = reactElement;
+    for (const key in props) {
+      if (key === "style") {
+        Object.assign(element.style, props.style);
+      } else if (key === "children") {
+        element.textContent = props.children;
+      } else {
+        element[key] = props[key];
+      }
+    }
+
+    root.append(element);
+  },
+};
+
+OriginalReactDOM.render(reactElement, root);
 
 // const element = document.createElement("h1");
 // element.textContent = "Hello World";
