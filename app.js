@@ -16,7 +16,7 @@ const OriginalReact = {
     };
   },
 };
-const root = document.getElementById("root");
+// const root = document.getElementById("root");
 
 const reactElement = OriginalReact.createElement(
   "h1",
@@ -47,6 +47,10 @@ const OriginalReactDOM = {
 };
 
 OriginalReactDOM.render(reactElement, root);
+
+// to select root in react we need to select like this
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render()
 
 // const element = document.createElement("h1");
 // element.textContent = "Hello World";
